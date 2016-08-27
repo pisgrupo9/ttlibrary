@@ -4,7 +4,7 @@
   cache: bundler
 bundler_args: --jobs=2
 script:
-script:
+before_script:
   - bundle exec rake db:migrate
 cache: bundler
 services:
