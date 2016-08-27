@@ -13,7 +13,7 @@ before_script:
   - bundle exec rake db:migrate
 
 before_script:
-  - psql -c 'create databse test' -U postgres
+  - psql -c 'create database test' -U postgres
 
 cache: bundler
 
