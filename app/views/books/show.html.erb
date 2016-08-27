@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-xs-3"></div>
+    
+  <div class="col-xs-5"> 
+    <div class="book row">
+      <div class="col-xs-4">
+        <%= image_tag @book.img.url(:medium), class: "img-responsive" %>
+      </div>
+      <div class="col-xs-8">
+        <div class="title"><h><%= @book.title %></h></div>
+        <p><%= link_to @book.author.first_name.titleize + ' ' + @book.author.last_name.titleize ,  author_path(@book.author), class: "lato-font" %></p>
+        <div class="year-request">
+          <p class="lato-font"><%= @book.year %></p>
+          <% if user_signed_in? && @request.empty? %>
+            <%= link_to 'Request',user_requests_path(current_user, :book_id => @book.id), method: :post, class: "lato-font link" %>
+          <% end %>
+        </div>
+        <div class="description">
+          <p class="lato-font"><%= @book.description %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="comments">
+      <p>Comments</p>
+      <%= render "comments/index" %>
+    </div>
+
+  </div>
+  
+  <div class="col-xs-3"></div>
+
+</div>

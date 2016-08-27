@@ -1,0 +1,9 @@
+<div id="comments">
+  <%= render @comments %>
+</div>
+
+<% if user_signed_in? %>
+  <div id="comments-form">
+    <%= render "comments/form" %>
+  </div> 
+<% end %>
