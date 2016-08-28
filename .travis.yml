@@ -24,5 +24,7 @@ addons:
 
 notifications:
   email:
+    recipients:
+      - joaclej@gmail.com
     on_success: always
     on_failure: always
