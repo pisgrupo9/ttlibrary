@@ -1,30 +1,20 @@
 language: ruby
 rvm:
-  - 2.2.2
+- 2.2.2
 env:
-  - DB=postgresql
+- DB=postgresql
 cache: bundler
-
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
-  - bundle exec rspec
-
-
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec
 before_script:
-  - psql -c 'create database test' -U postgres
-
-cache: bundler
-
+- psql -c 'create database test' -U postgres
 services:
-  - postgresql
-
+- postgresql
 addons:
-  postgresql: "9.4"
-
+  postgresql: '9.4'
 notifications:
-  email:
-    recipients:
-      - joaclej@gmail.com
-    on_success: always
-    on_failure: always
+  email: false
+  slack:
+    secure: eUATF5QuW+2EyUy/QHr9I1XObt5q3/KOI7vP9zArER1X+FgTJewrO0Q2rHrU4RJUY3MZW4gkvxauXO51XVWd6F5ylZ9qa76ehrAmXGzkBBEXcOLxPEhwl/syYCbDiYZANJYrXmh+ACR9+z2d9cU+K0RhRzAWSY25DnsgUuY8JDLG9Z6XXYkeVhPHEi/JUhKvupWFf3E21xdukiD9UNrDSyde0UfFPjgdWl1hU0ieo+32z3vcgeplzAWbifSkJvhU6blP/mV37dS63w/2OGz+UceG/dNUJNh3bPaMvX80N75WZIkKpH/uCaVt5qpqpS+isyWx/qm16qhmfdM4ZGexERvJIzqifpWH4hlpPPwQHh+2XLxEM8rxVXRPgcEJdAjaafRkrQnQb49t7NddGfjaREcOb6DHrJ1rBE1eTjEazZYi+yi27P7YVx7RCIockCpRWUj1aMbfuo5D7ofCArRn2cGdNqGD+cCBzRkFA1oUpqzO5k9Ihq0/RC7TX0eNjp9UFYXfchyzlmqntobWxgnYjjLF+zb15Bh23wtOozpNmCWUC8taElychE+0ZnjNp8mYqIzOXbyInSc3pQFz0SNhRx0riMxeTvB5pL5z3/87N1QnGqDi+CvWauqPhTlWiIfuiZ6j2/MAdYKa3Vwg1ABHgkLzgeC9D4gc70+V/DfMkgM=
