@@ -23,3 +23,7 @@ services:
 
 addons:
   postgresql: "9.4"
+
+notifications:
+  email:
+    on_success: default: always
